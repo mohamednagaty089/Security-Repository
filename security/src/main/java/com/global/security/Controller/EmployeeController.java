@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/employee")
+@RequestMapping("${allowed.start}/employee")
 public class EmployeeController {
 
-      @PreAuthorize("hasRole('Admin')")
+      @PreAuthorize("hasRole('ADMIN')")// and spring concatenation Role_Admin
       @GetMapping("/{name}")
       public String getName(@PathVariable String name){
     return "welcome"+name;
